@@ -2,7 +2,7 @@ import * as actionTypes from '../constants/actionTypes';
 import {sampleData} from '../sample-data';
 import { dataList } from '../interfaces/interfaces';
 
-type searchState = {
+interface searchState {
   input: string
   results: dataList
 };

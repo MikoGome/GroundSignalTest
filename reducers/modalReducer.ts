@@ -1,12 +1,33 @@
+import * as actionTypes from '../constants/actionTypes';
+import { dataEntry } from '../interfaces/interfaces';
+import { deepCopy } from '../utils/helperFunctions';
 
-const initialState = {
+interface modalState {
+  isOpen: boolean,
+  data: dataEntry
+}
+
+const initialState: modalState = {
   isOpen: false,
-  data: {}
+  data: {
+    id: -1,
+    name: '',
+    location: {
+      lat: -1,
+      lon: -1
+    }
+  }
 };
 
 function moduleReducer(state=initialState, action) {
   switch(action.type) {
     
+    case actionTypes.OPEN_MODAL:
+      return {
+        isOpen: true,
+        data: deepCopy(action.payload)
+      }
+
     default:
       return state;
   }

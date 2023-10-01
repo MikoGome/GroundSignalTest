@@ -2,7 +2,7 @@ import React from 'react';
 import SearchItem from './SearchItem';
 import { dataList } from '../interfaces/interfaces';
 
-const SearchDropDown:React.FC<{results: dataList}> = (props):JSX.Element => {
+const SearchDropDown:React.FC<{results: dataList}> = (props):JSX.Element => {  
   const {results} = props;
 
   return (

@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const App:React.FC = ():JSX.Element => {
   const {isOpen, data} = useSelector(state => state.modal);
-  console.log(data)
+  
   return (
     <div className="App">
       <SearchBar/>
