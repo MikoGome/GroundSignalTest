@@ -1,0 +1,14 @@
+Friday, 9/29/23
+
+    I just received the code test from Ground Signal, it seems like I'll have to code out a map navigation type application. 
+I never made an application like this before but it seems like it'll be fun. The email says that I should incorporate React, Redux, Tailwind, and Leaflet. 
+This doesn't seem too bad as I already have plenty of experience with React and Redux. Tailwind is something that I never used before but always had an interest in learning
+so this seems like a good opportunity to finally learn it. I never heard of Leaflet before but looking at the docs it seems pretty easy to pick up.
+For now, I'll just clone the repository and just disable google's default UI elements by adding a "disableDefaultUI" property with the value of True to the map object in main.js.
+
+Saturday, 9/30/23
+    Today, I'll try to get the functionality working. For now, I'll set up the React environment and incorporate a Redux store. 
+I am running into a problem when migrating my <div class="map"></div> into a React Component,the map isn't showing up. 
+After messing around and reading Leaflet docs, it turns out that it was having a height of 0px so a quick css adjustment was able to fix that.
+To incorporate leaflet, I think that I have to get rid of the google maps api. Right now, I'm using the URL "https://tile.openstreetmap.org/{z}/{x}/{y}.png" provided
+by leaflet docs but I'll have to change the tile later to make it look more like the picture. For now I'll work on the search feature.
