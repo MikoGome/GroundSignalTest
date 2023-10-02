@@ -1,5 +1,5 @@
 import * as actionTypes from '../constants/actionTypes';
-import {sampleData} from '../utils/sample-data';
+import {sampleData} from '../../sample-data';
 import {dataList} from '../interfaces/interfaces';
 import {deepCopy} from '../utils/helperFunctions';
 

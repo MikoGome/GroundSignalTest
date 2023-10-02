@@ -30,3 +30,9 @@ export interface mapState {
     lon: number
   }
 }
+
+//chart interfaces
+export interface chartFormat {
+  labels: string[],
+  datasets: number[]   
+}

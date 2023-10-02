@@ -122,3 +122,8 @@ body,
 .svg-icon {
 	@apply fill-blue-500 h-full w-full
 }
+
+/*BarChart Styles*/
+.bar-chart {
+	@apply p-10
+}

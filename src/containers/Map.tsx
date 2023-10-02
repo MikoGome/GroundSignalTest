@@ -13,8 +13,6 @@ const Map:React.FC<{}> = ():JSX.Element => {
   const {results} = useSelector(state => state.search);
   const {coordinates} = useSelector(state => state.map);
 
-  console.log('iconPin ', renderToString(<IconPin className="svg-icon"/>))
-
   const icon = new DivIcon({
     // iconUrl: iconPin,
     html: renderToString(<IconPin className="svg-icon"/>),

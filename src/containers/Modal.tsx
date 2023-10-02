@@ -4,6 +4,7 @@ import Description from '../components/Description';
 import { useDispatch } from 'react-redux';
 import * as actions from '../actions/actions';
 import IconPin from '../components/IconPin';
+import BarChart from '../components/BarChart';
 
 const Modal:React.FC<any> = (props):JSX.Element => {
   const {data} = props;
@@ -17,6 +18,8 @@ const Modal:React.FC<any> = (props):JSX.Element => {
   function closeModal() {
     dispatch(actions.closeModal());
   }
+
+  console.log(data);
 
   return (
     <div className="modal" onClick={closeModal}>
@@ -33,6 +36,7 @@ const Modal:React.FC<any> = (props):JSX.Element => {
         </div>
         {data.details?.description && <Description description={data.details.description}/>}
         {data.images && <Images imageURLs={data.images}/>}
+        {data.details?.avgStoreTraffic && <BarChart chartData={data.details.avgStoreTraffic}/>}
       </div>
     </div>
   )
