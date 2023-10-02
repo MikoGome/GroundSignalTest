@@ -2,8 +2,9 @@ import React from 'react';
 import { dataEntry } from '../interfaces/interfaces';
 import { useDispatch } from 'react-redux';
 import * as actions from '../actions/actions';
+import iconPin from '../assets/icon-pin.svg';
 
-const SearchItem:React.FC<{result: dataEntry}> = (props):JSX.Element => {
+const Location:React.FC<{result: dataEntry}> = (props):JSX.Element => {
   const dispatch = useDispatch();
   const {result} = props;
 
@@ -22,11 +23,14 @@ const SearchItem:React.FC<{result: dataEntry}> = (props):JSX.Element => {
   }
   
   return (
-    <li className="SearchItem" onClick={openModal} onMouseEnter={changeMapPos}>
-      <h4>{result.name}</h4>
-      <p>{result.location.lat + ',' + result.location.lon}</p>
+    <li className="location" onClick={openModal} onMouseEnter={changeMapPos}>
+      <img className="location-icon" src={iconPin} />
+      <div>
+        <h4 className="location-name">{result.name}</h4>
+        <p className="location-coordinates">{result.location.lat + ',' + result.location.lon}</p>
+      </div>
     </li>
   )
 }
 
-export default SearchItem;
+export default Location;

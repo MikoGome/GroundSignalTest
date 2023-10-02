@@ -32,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|svg)$/,
-        type: 'asset/inline'
+        type: 'asset/resource'
       }
     ]
   },

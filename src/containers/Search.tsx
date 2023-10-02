@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../actions/actions';
-import SearchDropDown from '../components/SearchDropDown';
+import Locations from '../components/Locations';
 import { dataList } from '../interfaces/interfaces';
+import iconSearch from '../assets/icon-search.svg';
 
-const SearchBar:React.FC<{}> = ():JSX.Element => {
+const Search:React.FC<{}> = ():JSX.Element => {
   const dispatch = useDispatch();
   const {input, results} = useSelector((state): {input: string, results: dataList} => state.search);
   
@@ -15,11 +16,14 @@ const SearchBar:React.FC<{}> = ():JSX.Element => {
   }
   
   return (
-    <div className="SearchBar">
-      <input placeholder="Search..." onChange={search}></input>
-      {Boolean(input.length) && <SearchDropDown results={results}/>}
+    <div className="search">
+      <div className="search-bar">
+        <img className="search-icon" src={iconSearch}/>
+        <input className="search-box" placeholder="Search..." onChange={search}></input>
+      </div>
+      {Boolean(input.length) && <Locations results={results}/>}
     </div>
   )
 }
 
-export default SearchBar;
+export default Search;

@@ -13,7 +13,7 @@ const Modal:React.FC<any> = (props):JSX.Element => {
   console.log(data);
 
   return (
-    <div className="Modal">
+    <div className="modal">
       <div className="top">
         <h4>{data.name}</h4>
         <p>{data.location.lat + ',' + data.location.lon}</p>
