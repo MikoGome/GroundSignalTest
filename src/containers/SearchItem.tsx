@@ -8,12 +8,21 @@ const SearchItem:React.FC<{result: dataEntry}> = (props):JSX.Element => {
   const {result} = props;
 
   //when a search item is clicked, it sends the data to the reducer
-  function openModal() {
+  function openModal():void {
     dispatch(actions.openModal(result))
+  }
+
+  //when a search item is hovered over, the map will center on that location
+  function changeMapPos():void {
+    const payload = {
+      lat: result.location.lat,
+      lon: result.location.lon
+    }
+    dispatch(actions.changeMapPos(payload))
   }
   
   return (
-    <li className="SearchItem" onClick={openModal}>
+    <li className="SearchItem" onClick={openModal} onMouseEnter={changeMapPos}>
       <h4>{result.name}</h4>
       <p>{result.location.lat + ',' + result.location.lon}</p>
     </li>

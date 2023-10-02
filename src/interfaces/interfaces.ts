@@ -22,3 +22,11 @@ export interface dataEntry {
 }
 
 export type dataList = dataEntry[]
+
+//map interfaces
+export interface mapState {
+  coordinates: {
+    lat: number
+    lon: number
+  }
+}

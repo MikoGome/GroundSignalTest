@@ -27,6 +27,9 @@ function moduleReducer(state=initialState, action) {
         isOpen: true,
         data: deepCopy(action.payload)
       }
+    
+    case actionTypes.CLOSE_MODAL:
+      return deepCopy(initialState);
 
     default:
       return state;

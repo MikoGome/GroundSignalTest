@@ -1,12 +1,19 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, 'index.tsx'),
+  entry: path.join(__dirname, 'src', 'index.tsx'),
   output : {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js'
   },
   devtool: 'inline-source-map',
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.join(__dirname, 'src', 'index.html')
+    })
+  ],
   module: {
     rules: [
       {
@@ -20,8 +27,12 @@ module.exports = {
         }]
       },
       {
-        test: /\.css/,
-        use: ['style-loader', 'css-loader']
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader']
+      },
+      {
+        test: /\.(png|jpe?g|svg)$/,
+        type: 'asset/inline'
       }
     ]
   },

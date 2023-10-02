@@ -1,6 +1,7 @@
 import * as actionTypes from '../constants/actionTypes';
-import {sampleData} from '../sample-data';
-import { dataList } from '../interfaces/interfaces';
+import {sampleData} from '../../sample-data';
+import {dataList} from '../interfaces/interfaces';
+import {deepCopy} from '../utils/helperFunctions';
 
 interface searchState {
   input: string
@@ -19,10 +20,10 @@ function searchReducer(state=initialState, action): searchState {
     //compare the name of payload to the name of each entries of sample-data.js and filter out any results that doesn't match
     const filteredResults = sampleData.filter((el) => {
       return el.name.toLowerCase().includes(action.payload.toLowerCase());
-    })
+    });
     return {
       input: action.payload,
-      results: action.payload.length ? filteredResults : []
+      results: action.payload.length ? deepCopy(filteredResults) : []
     };
 
     default:
