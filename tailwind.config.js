@@ -8,7 +8,11 @@ module.exports = {
     "./src/**/*.tsx"
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxHeight: {
+        '128': '32rem',
+      }
+    },
   },
   plugins: [],
 }

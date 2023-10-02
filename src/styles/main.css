@@ -18,12 +18,17 @@ body,
 
 .leaflet-container {
 	height: 100%;
-	z-index: 0
+	z-index: 0;
+}
+
+.leaflet-div-icon {
+	background: none;
+	border: none;
 }
 
 /* Search Styles*/
 .search {
-	@apply w-1/4 min-w-max z-10 fixed left-5 top-5 h-full
+	@apply w-1/4 min-w-max z-10 fixed left-5 top-5
 }
 
 .search-bar {
@@ -31,7 +36,7 @@ body,
 }
 
 .search-icon {
-	@apply mx-4
+	@apply mx-4 fill-gray-400
 }
 
 .search-box {
@@ -40,11 +45,11 @@ body,
 
 /* Locations List Styles */
 .locations {
-	@apply h-2/3 drop-shadow-md 
+	@apply drop-shadow-md
 }
 
 .locations-list {
-	@apply h-full overflow-auto
+	@apply max-h-128 overflow-auto
 }
 
 .locations-header {
@@ -53,11 +58,11 @@ body,
 
 /* Location Styles */
 .location {
-	@apply bg-white flex items-center py-3 last:rounded-b-sm border-b-gray-100 border-b-2 cursor-pointer hover:bg-blue-50 last:border-b-0
+	@apply bg-white flex items-center py-3 last:rounded-b-sm border-b-gray-100 border-b-2 cursor-pointer last:border-b-0 hover:bg-blue-50 
 }
 
-.location-icon {
-	@apply w-8 h-8 mx-3
+.location-icon-pin {
+	@apply w-8 h-8 mx-3 fill-blue-500
 }
 
 .location-name {
@@ -66,4 +71,54 @@ body,
 
 .location-coordinates {
 	@apply text-gray-400
+}
+
+/* Modal Styles */
+.modal {
+	@apply z-40 fixed top-0 right-0 bottom-0 left-0 bg-black bg-opacity-50 flex items-center justify-center drop-shadow-md
+}
+
+.modal-box {
+	@apply bg-white max-w-lg flex flex-col justify-around rounded-md
+}
+
+.modal-top {
+	@apply flex justify-between items-center p-3 border-b-gray-200 border-b-2 last:border-b-0 h-20
+}
+
+.modal-top-left {
+	@apply flex items-center
+}
+
+.modal-location-icon-pin {
+	@apply w-8 h-8 mr-3 fill-blue-500
+}
+
+.modal-location-name {
+	@apply font-bold text-xl
+}
+
+.modal-location-coordinates {
+	@apply text-gray-400 text-sm
+}
+
+.website-button {
+	@apply bg-blue-500 text-white px-5 py-3 rounded-md font-semibold	hover:brightness-110
+}
+
+.description {
+	@apply p-5 max-h-48 w-full overflow-auto
+}
+
+.images {
+	@apply flex justify-evenly p-3 overflow-auto flex-row-reverse
+}
+
+.image {
+	@apply w-36 h-36
+}
+
+/*Map Styles*/
+.svg-icon {
+	@apply fill-blue-500 h-full w-full
 }

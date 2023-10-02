@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../actions/actions';
 import Locations from '../components/Locations';
 import { dataList } from '../interfaces/interfaces';
-import iconSearch from '../assets/icon-search.svg';
+import IconSearch from '../components/IconSearch';
 
 const Search:React.FC<{}> = ():JSX.Element => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Search:React.FC<{}> = ():JSX.Element => {
   return (
     <div className="search">
       <div className="search-bar">
-        <img className="search-icon" src={iconSearch}/>
+        <IconSearch className="search-icon"/>
         <input className="search-box" placeholder="Search..." onChange={search}></input>
       </div>
       {Boolean(input.length) && <Locations results={results}/>}

@@ -1,19 +1,25 @@
 import React from 'react';
+import {renderToString} from 'react-dom/server';
 import { useDispatch, useSelector } from 'react-redux';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import * as actions from '../actions/actions';
-import { Icon } from 'leaflet';
+import { Icon, DivIcon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import pin from '../assets/icon-pin.svg';
+// import iconPin from '../assets/icon-pin.svg';
+import IconPin from '../components/IconPin';
 
 const Map:React.FC<{}> = ():JSX.Element => {
   const dispatch = useDispatch();
   const {results} = useSelector(state => state.search);
   const {coordinates} = useSelector(state => state.map);
 
-  const icon = new Icon({
-    iconUrl: pin,
-    iconSize: [35,35]
+  console.log('iconPin ', renderToString(<IconPin className="svg-icon"/>))
+
+  const icon = new DivIcon({
+    // iconUrl: iconPin,
+    html: renderToString(<IconPin className="svg-icon"/>),
+    iconSize: [35,35],
+    popupAnchor: [0, -10]
   })
 
   //when marker is clicked, it creates the approriate action object sends it to reducers
