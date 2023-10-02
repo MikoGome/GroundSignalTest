@@ -118,9 +118,13 @@ body,
 	@apply w-36 h-36
 }
 
+.icon-exit {
+	@apply fill-gray-300 fixed top-5 right-5 w-5 h-5
+}
+
 /*Map Styles*/
 .svg-icon {
-	@apply fill-blue-500 h-full w-full
+	@apply fill-blue-500 h-full w-full 
 }
 
 /*BarChart Styles*/
