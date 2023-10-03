@@ -1,15 +1,21 @@
-import React from 'react';
+import React, {memo} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../actions/actions';
 import Locations from '../components/Locations';
-import { dataList } from '../interfaces/interfaces';
+import { reducersType, searchStateType } from '../interfaces/interfaces';
 import IconSearch from '../components/IconSearch';
 
 const Search:React.FC<{}> = ():JSX.Element => {
   const dispatch = useDispatch();
-  const {input, results} = useSelector((state): {input: string, results: dataList} => state.search);
+
+  //extracts search state from the redux store
+  const {input, results} = useSelector((state:reducersType):searchStateType => state.search);
   
-  //dispatches the value in the input field to the reducers
+  /**
+   * takes the text string in the input field and dispatches it to the reducers
+   * @param e - React event of HTMLInputElement
+   * @returns nothing
+   */
   function search(e: React.ChangeEvent<HTMLInputElement>) {
     const target = e.target as HTMLInputElement
     dispatch(actions.search(target.value));
@@ -26,4 +32,4 @@ const Search:React.FC<{}> = ():JSX.Element => {
   )
 }
 
-export default Search;
+export default memo(Search);

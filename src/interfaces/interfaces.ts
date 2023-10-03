@@ -1,4 +1,5 @@
-export interface dataEntry {
+//search interfaces
+export interface locationDataEntryType {
   id: number,
   name: string
   location: {
@@ -21,10 +22,21 @@ export interface dataEntry {
   images?: string[]
 }
 
-export type dataList = dataEntry[]
+export type locationDataListType = locationDataEntryType[]
+
+export interface searchStateType {
+  input: string
+  results: locationDataListType
+};
+
+//modal interfaces
+export interface modalStateType {
+  isOpen: boolean,
+  data: locationDataEntryType
+}
 
 //map interfaces
-export interface mapState {
+export interface mapStateType {
   coordinates: {
     lat: number
     lon: number
@@ -32,7 +44,14 @@ export interface mapState {
 }
 
 //chart interfaces
-export interface chartFormat {
+export interface chartFormatType {
   labels: string[],
   datasets: number[]   
+}
+
+//reducers interfaces
+export interface reducersType {
+  map: mapStateType,
+  modal: modalStateType,
+  search: searchStateType
 }

@@ -11,6 +11,7 @@ import {
 const BarChart: React.FC<{chartData: any}> = (props):JSX.Element => {
   const {chartData} = props;
 
+  //ChartJS overhead
   ChartJS.register(
     BarElement,
     CategoryScale,
@@ -18,6 +19,7 @@ const BarChart: React.FC<{chartData: any}> = (props):JSX.Element => {
     Legend
   );
 
+  //format chartData into an object that ChartJS' Bar component understands
   const data = {
     labels: Object.keys(chartData),
     datasets: [{
@@ -26,8 +28,6 @@ const BarChart: React.FC<{chartData: any}> = (props):JSX.Element => {
       backgroundColor: '#3b82f6'
     }]
   }
-
-  console.log('data', data)
 
   return (
     <div className="bar-chart">

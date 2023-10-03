@@ -1,15 +1,16 @@
 import * as actionTypes from '../constants/actionTypes';
-import { mapState } from '../interfaces/interfaces';
+import { mapStateType } from '../interfaces/interfaces';
 
-const initialState: mapState = {
+const initialState: mapStateType = {
   coordinates: {
-    lat: 42.354022, 
-    lon: -71.046245
+    lat: 42.345000, 
+    lon: -71.045000
   }
 }
 
-function mapReducer(state = initialState, action): mapState {
+function mapReducer(state = initialState, action): mapStateType {
   switch(action.type) {
+    //change position of the leaflet map
     case actionTypes.CHANGE_MAP_POS:
       return {
         coordinates: {

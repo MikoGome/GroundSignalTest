@@ -1,7 +1,8 @@
 import React from 'react';
 
-const IconExit:React.FC<{className: string, handleClick: ()=>{}}> = (props):JSX.Element => {
+const IconExit:React.FC<{className: string, handleClick: ()=>void}> = (props):JSX.Element => {
   const {className, handleClick} = props;
+  
   return (
     <svg className={className} onClick={handleClick} height="800px" width="800px" viewBox="0 0 460.775 460.775">
       <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55

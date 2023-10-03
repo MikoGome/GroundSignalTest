@@ -1,14 +1,14 @@
 import React from 'react';
-import { dataEntry } from '../interfaces/interfaces';
+import { locationDataEntryType } from '../interfaces/interfaces';
 import { useDispatch } from 'react-redux';
 import * as actions from '../actions/actions';
 import IconPin from '../components/IconPin';
 
-const Location:React.FC<{result: dataEntry}> = (props):JSX.Element => {
+const Location:React.FC<{result: locationDataEntryType}> = (props):JSX.Element => {
   const dispatch = useDispatch();
   const {result} = props;
 
-  //when a search item is hovered over, the map will center on that location
+  //when a location is clicked, dispatch an action obect to reducers and then the map will center on that location
   function changeMapPos():void {
     const payload = {
       lat: result.location.lat,

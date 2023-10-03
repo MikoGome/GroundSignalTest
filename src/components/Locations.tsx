@@ -1,8 +1,8 @@
 import React from 'react';
 import Location from '../containers/Location';
-import { dataList } from '../interfaces/interfaces';
+import { locationDataListType } from '../interfaces/interfaces';
 
-const Locations:React.FC<{results: dataList}> = (props):JSX.Element => {  
+const Locations:React.FC<{results: locationDataListType}> = (props):JSX.Element => {  
   const {results} = props;
 
   return (

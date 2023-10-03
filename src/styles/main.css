@@ -49,11 +49,11 @@ body,
 }
 
 .locations-list {
-	@apply max-h-128 overflow-auto
+	@apply max-h-128 overflow-auto rounded-b-sm
 }
 
 .locations-header {
-	@apply bg-blue-500 mt-5 rounded-t-sm last:rounded-b-sm px-5 py-3 text-white font-bold
+	@apply bg-blue-500 mt-5 rounded-t-sm px-5 py-3 text-white font-bold last:rounded-b-sm
 }
 
 /* Location Styles */
@@ -124,7 +124,7 @@ body,
 
 /*Map Styles*/
 .svg-icon {
-	@apply fill-blue-500 h-full w-full 
+	@apply fill-blue-500 h-full w-full
 }
 
 /*BarChart Styles*/

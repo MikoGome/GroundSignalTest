@@ -1,20 +1,20 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {renderToString} from 'react-dom/server';
 import { useDispatch, useSelector } from 'react-redux';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import * as actions from '../actions/actions';
 import { Icon, DivIcon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-// import iconPin from '../assets/icon-pin.svg';
+import { reducersType} from '../interfaces/interfaces';
 import IconPin from '../components/IconPin';
 
 const Map:React.FC<{}> = ():JSX.Element => {
   const dispatch = useDispatch();
-  const {results} = useSelector(state => state.search);
-  const {coordinates} = useSelector(state => state.map);
+  const {results} = useSelector((state: reducersType) => state.search);
+  const {coordinates} = useSelector((state: reducersType) => state.map);
 
+  //configure leaflet's map marker
   const icon = new DivIcon({
-    // iconUrl: iconPin,
     html: renderToString(<IconPin className="svg-icon"/>),
     iconSize: [35,35],
     popupAnchor: [0, -10]
@@ -36,7 +36,7 @@ const Map:React.FC<{}> = ():JSX.Element => {
     const target = e.target as Icon;
     target.closePopup();
   }
-  
+
   return (
     <MapContainer center={[42.354022, -71.046245]} zoom={16} zoomControl={false} attributionControl={false}>
       <TileLayer
@@ -64,8 +64,9 @@ const Map:React.FC<{}> = ():JSX.Element => {
     )
 }
 
-export default Map;
+export default memo(Map);
 
+//takes the new state and moves the position of leaflet map to reflect it
 function SetView({coords}) {
     const map = useMap();
     map.setView(coords, map.getZoom(), {animate: true});

@@ -1,13 +1,8 @@
 import * as actionTypes from '../constants/actionTypes';
-import { dataEntry } from '../interfaces/interfaces';
+import { modalStateType } from '../interfaces/interfaces';
 import { deepCopy } from '../utils/helperFunctions';
 
-interface modalState {
-  isOpen: boolean,
-  data: dataEntry
-}
-
-const initialState: modalState = {
+const initialState: modalStateType = {
   isOpen: false,
   data: {
     id: -1,
@@ -21,13 +16,15 @@ const initialState: modalState = {
 
 function moduleReducer(state=initialState, action) {
   switch(action.type) {
-    
+
+    //opens the modal by setting isOpen to true and copies the payload into state
     case actionTypes.OPEN_MODAL:
       return {
         isOpen: true,
         data: deepCopy(action.payload)
       }
-    
+
+    //closes modal by changing state to initial state
     case actionTypes.CLOSE_MODAL:
       return deepCopy(initialState);
 
